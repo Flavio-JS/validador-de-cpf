@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="br">
+  {{>partials/header}}
+  <body>
+    <h1>Painel-Page</h1>
+    <hr/>
+    <h2>Insira um novo usuário</h2>
+    <form method="POST" action="/painel/add-user">
+        <input type="text" name="name" placeholder="nome do usuário" required/>
+        <input type="number" name="age" placeholder="idade do usuário" />
+        <input type="submit" value="inserir usuario" />
+    </form>
+    <hr/>
+    <form method="GET" action="/painel">
+      <h3>Filtrar nome</h3>
+        <input type="text" name="filterName" placeholder="nome do usuário"/>
+        <br/>
+        {{#filterName}}
+        Filtrando nomes com: "{{filterName}}";
+        {{/filterName}}
+        <br/>
+      <h3>Ordem</h3>
+        <input type="radio" id="alphabeticalOrder" name="alphabeticalOrder" value="ASC">
+        <label for="alphabeticalOrder">Ordem Alfabética</label>
+        <input type="radio" id="reverseAlphabeticalOrder" name="alphabeticalOrder" value="DESC">
+        <label for="reverseAlphabeticalOrder">Ordem Alfabética Inversa</label><br>
+        <input type="submit" value="filtrar"/>
+    </form>
+    <hr/>
+    <ul>
+    USUÁRIOS NO BANCO
+    {{#users}}
+      <li>{{name}} - Idade:{{age}}</li>
+    {{/users}}
+    {{^users}}
+      <br/>Sem usuários com filtro: "{{filterName}}"
+    {{/users}}
+    </ul>
+    <form method="GET" action="/painel">
+      <h3>Filtrar nome</h3>
+        <input type="number" name="pages"/>
+        <input type="submit" value="pages"/>
+    </form>
+  </body>
+</html>
