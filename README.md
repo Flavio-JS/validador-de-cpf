@@ -1,6 +1,8 @@
 <h1>Validador de CPF</h1>
 
 <h2>Programa #GoDev</h2>
+<br/>
+Para rodar o programa : npm run start-dev
 
 ![image](https://user-images.githubusercontent.com/106037619/176054180-7f10d4bc-7d82-4f6e-98ef-7ab4a721d695.png)
 
